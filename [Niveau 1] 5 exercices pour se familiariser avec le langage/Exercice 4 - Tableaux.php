@@ -17,8 +17,7 @@ function dernierElementTableau($tableau){
       return ($tableau[$taille-1]);}
     else {
       return "null";}
-  
-  }
+    }
 
 echo '<p>'.'Le dernier élement du tableau est :'.dernierElementTableau(['70','85','22','78']).'</p>';
 
