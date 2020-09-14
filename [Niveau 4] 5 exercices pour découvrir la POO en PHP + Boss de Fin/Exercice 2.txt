@@ -1,0 +1,46 @@
+Enoncé :
+
+Désormais les propriétés nom et departement sont privées, elles ne sont donc plus modifiables de la façon suivante :
+$ville1->nom = "..."
+
+Vous pouvez consulter le cours de Pierre Giraud sur ce sujet pour bien comprendre ce que ça implique :
+https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/oriente-objet-encapsulation-public-protected-private/
+
+Modifiez donc la classe de l'exercice précédent en la dotant d’un constructeur. 
+
+Réalisez les mêmes opérations de création d’objets et d’affichage.
+
+<?php
+class ville
+{
+	private $nom;
+	private $departement;
+
+	// c'est comme ça qu'on déclare le constructeur de la classe
+
+	public function __construct(.......) 
+	{
+		$this->nom=.....
+		$this->departement=.....
+	}
+
+	public function getinfo()
+	{
+		return ........
+	}
+}
+
+//Création d'objets
+$ville1 = new ville(....);
+$ville2 = new ville(....);
+
+echo $ville1->getinfo();
+echo $ville2->getinfo();
+?>
+	
+Le résultat affiché est :
+La ville de Nantes est dans le département : Loire Atlantique
+La ville de Lyon est dans le département : Rhône
+
+
+Vous constaterez que l’utilisation d’un constructeur facilite la création d’objets et l’affectation de ses propriétés. 

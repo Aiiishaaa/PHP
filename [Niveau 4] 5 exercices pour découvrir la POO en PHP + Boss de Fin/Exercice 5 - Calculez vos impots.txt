@@ -1,0 +1,39 @@
+Exercice 5 - Calculez vos impôts
+
+Enoncé :
+Dans un fichier "index.php", créez un formulaire contenant une zone de saisie pour le nom, le revenu et un bouton OK pour soumettre le formulaire.
+Le but de ce formulaire est de permettre le calcul de l’impôt pour une personne. 
+Le taux de l’impôt est de 15% pour des revenus inférieurs à 15 000 euros et de 20 % pour des revenus supérieurs à 15 000.
+Le formulaire enverra ses données avec la méthode GET et chargera le fichier resultatImpot.php lors de sa soumission.
+Sa déclaration sera : <form action="resultatImpot.php" method="get">
+Une fois le formulaire envoyé grâce au bouton OK, une phrase s’affiche du style « Monsieur Durant votre impôt est de 600 euros ».
+
+Le programme doit obligatoirement contenir 3 fichiers :
+
+Le fichier "impot.php" contiendra :
+* une classe "impot"
+* avec son constructeur, 
+* une méthode afficheImpot() qui retourne une chaîne contenant le message à afficher (« Monsieur Durant votre impôt est de 600 euros » par exemple) 
+* et une méthode calculeImpôt() qui retourne le montant de l’impôt suivant le revenu.
+* ainsi que deux constantes qui serviront à définir les taux d'imposition (20% et 15%)
+
+Le fichier "resultatImpot.php" contiedra : 
+* la création de l’objet qui servira au calcul
+* et l’appel des méthodes nécessaires à ce calcul
+
+Enfin le fichier "index.php" qui sera le fichier chargé dans le navigateur et qui affichera le formulaire
+
+Etape 1.
+Affichez la page index.php dans un navigateur.
+Le formulaire doit s’afficher. Saisir le nom (Végéta) et le revenu (10000). Cliquer sur OK. 
+La phrase "Monsieur Végéta votre impôt est de 1500 euros." doit être affichée.
+
+Etape 2.
+Relancez la page index.php dans votre navigateur.
+Le formulaire doit s’afficher. Saisir le nom (Végéta) et le revenu (20000). Cliquer sur OK. La phrase "Monsieur Végéta votre impôt est de 4000 euros." doit être affichée.
+
+Etape 3.
+Regardez le code dans le fichier impot.php. Vériifez bien que La classe "impot" est définie avec un constructeur et deux méthodes. La méthode AfficherImpot() fait appel à la méthode CalculImpot(). Les pourcentage de taxe sont définis avec le mot-clé "const".
+
+Etape 4.
+Regardez le code dans le fichier resultatImpot.php. Vous devez y retrouver l'instanciation de la classe "impot" grâce au mot clé "new". Les informations retournées par la fonction AfficherImpot() sont utilisées pour afficher les impôts de l'utilisateur.

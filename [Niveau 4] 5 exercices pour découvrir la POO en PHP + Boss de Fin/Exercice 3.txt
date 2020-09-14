@@ -1,0 +1,58 @@
+Enoncé :
+
+Créez une classe représentant une personne. Elle doit avoir les propriétés nom, prénom et adresse, ainsi qu’un constructeur et un destructeur. Jusqu'à présent vous n'aviez pas eu à écrire le code d'un destructeur, vous pouvez trouver toutes les infos à ce sujet sur le cours d ePierre Giraud :
+https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/oriente-objet-constructeur-destructeur/
+
+Le code du constructeur et du destructeur vous est fourni.
+Vous ajouterez une méthode getPersonne() qui doit retourner les coordonnées complètes de la personne. 
+Une méthode setadresse() doit permettre de modifier l’adresse de la personne. 
+
+Créez enfin plusieurs objets personne en leur attribuant toutes les informations nécessaires, et utilisez l’ensemble des méthodes.
+
+<?php
+class personne
+{
+	private $nom;
+	private $prenom;
+	private $adresse;
+
+	//Constructeur
+	public function __construct($nom, $prenom, $adresse)
+	{
+		$this->nom=$nom;
+		$this->prenom=$prenom;
+		$this->adresse=$adresse;
+	}
+
+	//Destructeur
+	public function __destruct()
+	{
+		echo "<script type=\"text/javascript\">alert('La personne nommée $this->prenom $this->nom \\n est supprimée de vos contacts')</script>";
+	}
+
+	public function getPersonne()
+	{
+		.......
+	}
+
+	public function setadresse(.....)
+	{
+		.......
+	}
+}
+
+//Création d'objets
+$client = new personne("Geelsen","Jan"," 145 Rue du Maine Nantes");
+echo $client->getPersonne();
+
+//Modification de l'adresse
+$client->setadresse("23 Avenue Foch Lyon");
+echo $client->getPersonne();
+
+//Suppression explicite du client, donc appel du destructeur
+unset($client);
+//Fin du script
+echo "Fin du script";
+?>
+	
+Notez l’ordre d’apparition de la boite d’alerte créée par le destructeur après l’appel de la fonction unset() et de l’affichage de la fin du script.
