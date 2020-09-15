@@ -1,5 +1,5 @@
 <?php
-function Triangle($int) {
+function display_triangle($int) {
 
     for($i = 0; $i < $int; $i++) {
         echo '<div>';
@@ -11,5 +11,5 @@ function Triangle($int) {
 };
 
 echo '<div style="text-align: center">';
-echo Triangle(10);
+echo display_triangle(10);
 echo '</div>';

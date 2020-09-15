@@ -29,6 +29,9 @@ echo '<p>'.verificationPassword2('15azcfe24').'</p>';
 function capital($str)
 {
     switch ($str) {
+        case 'Tunisie':
+            return 'Tunis';
+            break;
         case 'France':
             return 'Paris';
             break;
@@ -51,13 +54,14 @@ function capital($str)
             return 'Londre';
             break;
         default:
-            return 'Inconnu';
+            return 'Introuvable ';
             break;
     }
 };
 
 echo '<p>' . capital('France') . '</p>';
 echo '<p>' . capital('Tunisie') . '</p>';
+echo '<p>' . capital('Algérie') . '</p>';
 
 
 
