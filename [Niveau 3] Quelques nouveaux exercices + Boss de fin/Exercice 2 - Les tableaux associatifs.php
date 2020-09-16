@@ -22,7 +22,7 @@
         li {
             font-size: 20px;
             color : green; 
-            padding-top:50px;
+            padding-top:20px;
         }
     </style>
 </head>
