@@ -14,8 +14,7 @@
             background-color: white;
             margin: auto;
             padding: 20px;
-           
-         }
+        }
          input {
             padding: 10px;
         }
