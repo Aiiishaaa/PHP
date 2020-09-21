@@ -1,10 +1,13 @@
 Préambule :
-Afin de vous familiariser avec la Programmation Orientée Objets (POO) commencez à consulter un cours ou un tuto vous expliquant bien les principes de ce paradigme de programmation. Vous pouvez consulter celui de Pierre Giraud, très complet : https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/introduction-programmation-orientee-objet/
+Afin de vous familiariser avec la Programmation Orientée Objets (POO) commencez à consulter un cours ou
+ un tuto vous expliquant bien les principes de ce paradigme de programmation. Vous pouvez consulter celui de Pierre Giraud,
+  très complet : https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/introduction-programmation-orientee-objet/
 
 
 Enoncé :
 
-Écrivez une classe représentant une ville. Elle doit avoir les propriétés "nom" et "departement" et une méthode affichant «la ville X est dans le département : Y». 
+Écrivez une classe représentant une ville. Elle doit avoir les propriétés "nom" et "departement" 
+et une méthode affichant «la ville X est dans le département : Y». 
 Créez ensuite des objets Ville, affectez leurs propriétés, et utilisez la méthode d’affichage.
 
 Vous pouvez vous inspirer du squelette suivant et le compléter :

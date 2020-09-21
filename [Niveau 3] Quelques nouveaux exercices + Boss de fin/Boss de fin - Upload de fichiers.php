@@ -47,6 +47,37 @@
 
 <h3>  Gérer l’upload de fichiers en PHP depuis un formulaire.  </h3>
         
+<?php
+
+                if (isset($_POST["submit"])) 
+                {
+                    $player1 = !empty($_POST["player1"]);
+                    $player2 = !empty($_POST["player2"]);
+                    $match_nbr = !empty($_POST["match_nbr"] && $_POST["match_nbr"] <= 64 && $_POST["match_nbr"] > 0);
+                    $screenshot = false;
+
+                    if ($_FILES["screenshot"]["error"] === 0) {
+                        $file_name = $_FILES["screenshot"]["name"];
+                        $file_ext = explode(".", $file_name);
+                        $file_ext = end($file_ext);
+                        $file_ext = strtolower($file_ext);
+                        $allowed_ext = ["png", "jpg", "jpeg"];
+                        $file_size = $_FILES["screenshot"]["size"];
+                        $file_tmp = $_FILES["screenshot"]["tmp_name"];
+                        $file_new_name = $_POST["match_nbr"] . "_" . $_POST["player1"] . "_" . $_POST["player2"] . "_" . "W" . $_POST["winner"] . "." . strtoupper($file_ext);
+                            if (in_array($file_ext, $allowed_ext) && $file_size < 2000000) {
+                                $screenshot = true;
+                            }
+                    }
+
+                    $success = $player1 && $player2 && $match_nbr && $screenshot;
+
+                    if ($success) {
+                        move_uploaded_file($file_tmp, "uploads/" . $file_new_name);
+                    }
+                }
+
+?>
 
     <div class="container">
         <div class="row">
@@ -58,7 +89,8 @@
                             <label for="player1"> Le nom ou pseudo du Joueur 1: </label>
                             <input type="text" class="form-control" id="player2" name="Player"1 >
                                 <?php 
-                                if (isset($_POST["submit"])) {
+                                if (isset($_POST["submit"])) 
+                                {
                                     if ($player1) { 
                                         echo $_POST["player1"];} 
                                     else { 
@@ -71,7 +103,8 @@
                             <label for="player2"> Le nom ou pseudo du Joueur 2: </label>
                             <input type=text class=form-control id=player2 name=Player2 >
                                 <?php
-                                if (isset($_POST["submit"])) {
+                                if (isset($_POST["submit"]))
+                                {
                                     if ($player2) {
                                           echo $_POST["player2"];}
                                     else { 
@@ -88,7 +121,7 @@
                                 if ($match_nbr) { 
                                     echo $_POST["match_nbr"];}
                                 else { 
-                                    echo "Ce champs est obligatoire ! il faut saisir un nombre allant de 1 à 64.";} 
+                                    echo "<p>Ce champs est obligatoire ! il faut saisir un nombre allant de 1 à 64.</p>";} 
                              } ?>
                         </div>
 
@@ -106,7 +139,12 @@
 
                         <div class="form-group">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input <?php if (isset($_POST["submit"])) {echo $screenshot ? "" : "is-invalid";} ?>" id="screenshot" name="screenshot">
+                                <input type="file" class="custom-file-input
+                                    <?php 
+                                    if (isset($_POST["submit"])) {
+                                        echo $screenshot ? "" : "is-invalid";
+                                    } ?>"
+                                id="screenshot" name="screenshot">
                                 <label style ="width :550px; font-size:20px"class="custom-file-label" for="screenshot"> Uploader les screenshots </label>
                             </div>
                         </div>
@@ -116,15 +154,8 @@
                 </div>
             
         </div>
-        <div class="row">
-            
-               
-            
-        </div>
-    </div>
+       
 
 </body>
 
-</html>
-</body>
 </html>
