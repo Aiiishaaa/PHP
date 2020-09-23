@@ -55,7 +55,6 @@
                                     else                                             //Si le fichier n'existe pas
                                     {   
                                         
-                                     
                                         $compteur = fopen("compteur.txt", "w");      // l''ouvrir en écriture ce qui aura pour effet de le créer. 
                                         fwrite($compteur, "1");                 
                                         fclose($compteur);
