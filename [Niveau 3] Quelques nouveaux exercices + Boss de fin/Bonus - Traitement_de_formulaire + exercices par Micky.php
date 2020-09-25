@@ -69,7 +69,7 @@
                             }
                 ?>
                 <p>
-                        <form action="traitement.php" method="get">
+                        <form action="" method="get">
                             <p>
                                <label for="name">Nom :</label><br>
                                <input type="text" id="name" name="name" placeholder="Taper votre nom">
@@ -89,12 +89,9 @@
                         </form>
                 </p>
 
-                <?php
-                            if (isset($_POST["psubmit"])) {
-                                    echo " <H1>Bonjour " . $_POST["pname"] . " " . $_POST["pfname"] ." Vous êtes né à " . $_POST["pcity"]."</H1>";}
-                ?>
+               
                 <p>
-                        <form action="traitement.php" method="post">
+                        <form action="" method="post">
                             <p>
                                 <label for="pname">Nom :</label><br>
                                 <input type="text" id="pname" name="pname" placeholder="Taper votre nom" >
@@ -112,7 +109,11 @@
 
                             <input type="submit" value="Envoyer" name="psubmit">
                         </form>
-                </p>
+                </p> 
+                <?php
+                            if (isset($_POST["psubmit"])) {
+                                    echo " <H1>Bonjour " . $_POST["pname"] . " " . $_POST["pfname"] ." Vous êtes né à " . $_POST["pcity"]."</H1>";}
+                ?>
     </div>
        
 

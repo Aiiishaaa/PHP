@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    .articles {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: auto;
+    }
+    
+    .article {
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        padding: 2em;
+        background-color: #161616;
+        color: #fff;
+        flex: 400px 1;
+        margin: 1em;
+    }
+    
+    .article__title {
+        margin-top: 0;
+        margin-bottom: auto;
+        padding-bottom: 1em;
+        font-size: 2rem;
+    }
+    
+    .article__link {
+        color: rgb(250, 134, 134);
+        order: 2;
+        margin: 1em auto 0;
+    }
+    
+    .article__link:visited {
+        color: rgb(245, 195, 195);
+    }
+    
+    .article__desc {
+        line-height: 1.5;
+        height: 9rem;
+        overflow: hidden;
+        order: 1;
+    }
+    
+    .article__date {
+        font-size: 80%;
+    }
+</style>
+
+<body>
+    <div class="articles"></div>
+    <script>
+        $.ajax({
+                url: "getrss.php",
+                dataType: "html",
+                success: function(data) {
+                    $(".articles").append(data)
+                }
+            }
+
+        )
+    </script>
+</body>
+
+</html>

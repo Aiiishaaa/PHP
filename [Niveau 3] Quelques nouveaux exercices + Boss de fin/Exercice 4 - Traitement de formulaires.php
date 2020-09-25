@@ -30,6 +30,13 @@
              color: #FF0000;
         }
   
+        table{
+            width: 50%;
+            text-align: center;
+            border: 1px solid black;
+            margin-left: 25%;
+        }
+
     </style>
 </head>
 
@@ -124,9 +131,26 @@ function test_input($data) {
             <input type="submit" name="submit" value="Envoyer">
 
         </form>
-
-
-
+        <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>E-mail</th>
+                <th>Telephone</th>
+                <th>Addresse</th>
+                <th>Code postal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> <?php echo htmlspecialchars($_POST["name"]) ?> </td>
+                <td> <?php echo htmlspecialchars($_POST["email"]) ?> </td>
+                <td> <?php echo htmlspecialchars($_POST["telephone"]) ?> </td>
+                <td> <?php echo htmlspecialchars($_POST["adresse"]) ?> </td>
+                <td> <?php echo htmlspecialchars($_POST["postale"]) ?> </td>
+            </tr>
+        </tbody>
+    </table>
 
     </body>
 

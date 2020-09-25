@@ -53,7 +53,7 @@ if (!isset($_COOKIE["visited"])) {
         echo "<li>" . $elt . "</li>";
     }
     echo "<li>" . $date . "</li>";
-
+    
 
     array_push($tab, $date);// Empile un ou plusieurs éléments à la fin d'un tableau .
     $tab = implode(";", $tab);// séparer les élements du tableaux avec un ";" .

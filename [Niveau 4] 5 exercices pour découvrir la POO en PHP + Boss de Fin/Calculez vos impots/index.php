@@ -1,42 +1,30 @@
-<?php
-
-class form
-{
-	private $code; // code complet du formulaire
-	private $codeinit; // code de l'entete du formulaire : balises form + fielset + legend
-	private $codetext ; // code de chaque input
-	private $codesubmit; // code du bouton submit
-
-	
-    public function __construct($action,$titre,$methode="post")
-    {
-        $this->codeinit="<form action=\"$action\" method=\"$methode\">";
-        $this->codeinit.="<fieldset><legend><b>$titre</b></legend>";
-    }
-
-	public function settext($name, $libelle, $method="post")
-	{
-		$this->codetext.="<b>$libelle</b><input type=\"text\" name=\"$name\" /><br /><br />";
-		
-	}
-
-	public function setsubmit($name="envoi", $value="Envoyer")
-	{
-		$this->codesubmit="<input type=\"submit\" name=\"$name\" value=\"Envoyer\"/><br />";
-	}
-	
-
-	public function getform()
-	{
-		$this->code="";
-        $this->code.=$this->codeinit;
-        $this->code.=$this->codetext;
-        $this->code.=$this->codesubmit;
-        $this->code.="</fieldset></form>";
-        echo $this->code;
-	}
-}
-
-?>
-
- 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex-05</title>
+	 <style>
+	  body{
+		  text-align:center;
+		  color : Red;
+		  font-family:Times;
+	  }
+	 </style>
+</head>
+<body>
+    <form action="resultatImpot.php" method="GET">
+        <label style="margin-left:15px"> Nom :
+            <input type="text" name="nom" value="<?php echo isset($_GET["nom"]) ? $_POST["nom"] : "" ?>">
+            
+        </label>
+        <br>
+        <label> Revenu :
+            <input type="text" name="revenu" value="<?php echo isset($_GET["revenu"]) ? $_POST["revenu"] : "" ?>">
+            
+        </label>
+        <br>
+        <button type="submit" name="submit">OK</button>
+    </form>
+</body>
+</html>

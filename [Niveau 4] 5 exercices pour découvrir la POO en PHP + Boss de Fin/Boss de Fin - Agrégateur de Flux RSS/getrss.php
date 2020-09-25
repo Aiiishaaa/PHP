@@ -30,15 +30,38 @@ function loadrss($url)
     echo ("<p>Titre de la news 2 : ". $x->item(1)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue . "</p>");
     echo ("<p>Titre de la news 3 : ". $x->item(2)->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue . "</p>");
 
-    /* vous devrez faire une boucle pour itérer sur tous les éléments
-     * à chaque élément vous pourrez récupérer les infos suivantes :
-     * - titre de la news
-     * - lien vers la news complète
-     * - image associée à la news
-     * - texte de la news
-     * - date de la news
-     *
-     * C'est à partie de toutes ces infos que vous générerez le code HTML */
+ 
+        $xmlDoc = new DOMDocument(); // ça vous rappelle quelque chose ? un flux RSS, c'est du XML et il se trouve que tous les document XML (dont le HTML est une forme particulière) sont navigable via un DOM
+        $xmlDoc->load($url); // on initialise ce DOM avec l'url de notre flux
+    
+        // Récupération des infos du flux dans la balise "<channel>"
+        $items = $xmlDoc->getElementsByTagName('item');
+        // notez la notation fléchée (php objet). On navigue dans ce DOM comme vous avez appris à le faire en javascript
+
+
+
+                
+        /* vous devrez faire une boucle pour itérer sur tous les éléments
+            * à chaque élément vous pourrez récupérer les infos suivantes :
+            * - titre de la news
+            * - lien vers la news complète
+            * - image associée à la news
+            * - texte de la news
+            * - date de la news
+        */ 
+        
+        foreach ($items as $item) {
+            echo "<div class=\"article\">" .
+                "<h3 class=\"article__title\">" . $item->getElementsByTagName('title')->item(0)->childNodes->item(0)->nodeValue . "</h3>" .
+                "<a class=\"article__link\" href=\"" . $item->getElementsByTagName('link')->item(0)->childNodes->item(0)->nodeValue . "\">" .
+                "Lien vers l'article" . "</a>" .
+                "<p class=\"article__image\"><img src=\"" . $item->getElementsByTagName("thumbnail")->item(0)->getAttribute("url") . "\"></p>" .
+                "<p class=\"article__desc\">" . $item->getElementsByTagName('description')->item(0)->childNodes->item(0)->nodeValue . "</p>" .
+                "<p class=\"article__date\">" . $item->getElementsByTagName('pubDate')->item(0)->childNodes->item(0)->nodeValue . "</p>" .
+                "</div>";
+        
+    }
+    
 }
 
 // on appelle la fonction qu'on a écrite sur le flux RSS de notre choix
