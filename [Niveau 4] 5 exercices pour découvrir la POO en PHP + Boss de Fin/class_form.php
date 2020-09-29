@@ -20,7 +20,7 @@ class form
 		$this->codetext.="<b>$libelle</b><input type=\"text\" name=\"$name\" /><br /><br />";
 		// notez que si vous appelez plusieurs fois la fonction settext, les input se concatènent
 	}
-
+	
 	//************************************************
 	public function setsubmit($name="envoi", $value="Envoyer")
 	{
