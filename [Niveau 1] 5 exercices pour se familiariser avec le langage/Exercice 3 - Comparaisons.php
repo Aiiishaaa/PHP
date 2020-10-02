@@ -6,8 +6,7 @@ function estIlMajeur($âge){
   else {  
       return "False";  
     }
-
- }
+}
 echo '<p>'.estIlMajeur(20).'</p>';
 
 
@@ -17,19 +16,20 @@ function plusGrand($arg1,$arg2){
       else {
     return $arg2;
        }
-    }
+}
 echo '<p>'.plusGrand(10,20).'</p>'; 
 
 
 function plusPetit ($arg1,$arg2){
    
     if( $arg1 > $arg2) {
-        return $arg2 ; }
+        return $arg2 ;
+    }
       else {
     return $arg1;
-       }
-    
     }
+    
+}
    
 echo '<p>'.plusPetit(15,87).'</p>';
 
@@ -41,7 +41,7 @@ function lePlusPetit( $arg1,$arg2,$arg3){
           else { 
             return $arg3;
            }
-        }
+    }
     else  if (( $arg2 > $arg1) && ( $arg2 > $arg3)) {
           if( $arg1 > $arg3) {
             return $arg3 ; }
@@ -55,7 +55,7 @@ function lePlusPetit( $arg1,$arg2,$arg3){
         else { 
             return $arg1;
            }
-        }
+    }
 }
    
 echo '<p>'.lePlusPetit(20,13,50).'</p>';
